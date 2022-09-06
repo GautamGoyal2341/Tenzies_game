@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="main">
       <div className="dice-container">{dieele}</div>
-      <button className="buttre" onClick = {narray}>
+      <button className="roll-dice" onClick = {narray}>
         RE_ROLL
       </button>
     </div>
