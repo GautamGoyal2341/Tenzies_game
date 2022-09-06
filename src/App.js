@@ -11,22 +11,14 @@ function App() {
     }
     return Array;
    }
-   console.log(allNewDice());
+//    console.log(allNewDice());
 
-
+  const [dice,setDice] = React.useState(allNewDice());
+  const dieele = dice.map(dii => <Die value  = {dii} /> )
   return (
     <div className="main">
       <div className="dice-container">
-        <Die value="1" />
-        <Die value="2" />
-        <Die value="3" />
-        <Die value="4" />
-        <Die value="5" />
-        <Die value="6" />
-        <Die value="7" />
-        <Die value="1" />
-        <Die value="1" />
-        <Die value="1" />
+        {dieele}
       </div>
     </div>
   );
