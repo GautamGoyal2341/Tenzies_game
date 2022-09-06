@@ -20,6 +20,7 @@ function App() {
       <div className="dice-container">
         {dieele}
       </div>
+      <button className = "buttre" >RE_ROLL   </button>
     </div>
   );
 }
