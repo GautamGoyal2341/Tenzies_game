@@ -8,7 +8,11 @@ function Die(prop)
         backgroundColor: prop.isHeld ? "#59E391" : "white"
 
     }
-return <div className="sett" style={styles}>
+return <div className="sett" style={styles}
+
+onClick = {prop.holdDice}
+
+>
     <h1 className="die-noo" >{prop.value}</h1>
     </div>
 }
