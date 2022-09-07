@@ -4,7 +4,11 @@ import React from "react";
 function Die(prop)
 {
     // console.log(prop)
-return <div className="sett">
+    const styles  = {
+        backgroundColor: prop.isHeld ? "#59E391" : "white"
+
+    }
+return <div className="sett" style={styles}>
     <h1 className="die-noo" >{prop.value}</h1>
     </div>
 }
