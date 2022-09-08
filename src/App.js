@@ -4,7 +4,10 @@ function App() {
   function allNewDice() {
     const Array = [];
     for (let i = 0; i < 10; i++) {
-      Array.push(Math.floor(Math.random() * 6));
+      Array.push({ value :Math.ceil(Math.random() * 6) ,
+        isHeld : false
+        
+        });
     }
     return Array;
   }
@@ -15,7 +18,7 @@ function App() {
   //    console.log(allNewDice());
 
   const [dice, setDice] = React.useState(allNewDice());
-  const dieele = dice.map((dii) => <Die value={dii} />);
+  const dieele = dice.map((dii) => <Die value={dii.value} />);
   return (
     <div className="main">
       <div className="dice-container">{dieele}</div>
