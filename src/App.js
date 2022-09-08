@@ -20,7 +20,11 @@ function App() {
   console.log(allNewDice());
 function holdDice(id)
 {
-    console.log(id);
+    setDice(olddice => olddice.map(doe => 
+        {
+       return doe.id === id ? 
+       {...doe , isHeld : !doe.isHeld}  : doe
+        }))
 }
 
   const [dice, setDice] = React.useState(allNewDice());
