@@ -2,14 +2,18 @@ import React from "react";
 import Die from "./Die";
 import { nanoid } from "nanoid";
 function App() {
-  function allNewDice() {
-    const Array = [];
-    for (let i = 0; i < 10; i++) {
-      Array.push({
+  function everyTimeNew()
+  {
+    return {
         value: Math.ceil(Math.random() * 6),
         isHeld: false,
         id: nanoid(),
-      });
+      }
+  }
+  function allNewDice() {
+    const Array = [];
+    for (let i = 0; i < 10; i++) {
+      Array.push(everyTimeNew());
     }
     return Array;
   }
