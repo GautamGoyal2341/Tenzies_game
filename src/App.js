@@ -19,7 +19,10 @@ function App() {
   }
   function narray() {
     // console.log("clicl");
-    setDice(allNewDice());
+    setDice(olddice => olddice.map(doi => 
+     {   return doi.isHeld ?
+        doi : everyTimeNew()
+       }  ));
   }
   console.log(allNewDice());
 function holdDice(id)
