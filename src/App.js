@@ -2,13 +2,12 @@ import React from "react";
 import Die from "./Die";
 import { nanoid } from "nanoid";
 function App() {
-  function everyTimeNew()
-  {
+  function everyTimeNew() {
     return {
-        value: Math.ceil(Math.random() * 6),
-        isHeld: false,
-        id: nanoid(),
-      }
+      value: Math.ceil(Math.random() * 6),
+      isHeld: false,
+      id: nanoid(),
+    };
   }
   function allNewDice() {
     const Array = [];
@@ -19,27 +18,36 @@ function App() {
   }
   function narray() {
     // console.log("clicl");
-    setDice(olddice => olddice.map(doi => 
-     {   return doi.isHeld ?
-        doi : everyTimeNew()
-       }  ));
+    setDice((olddice) =>
+      olddice.map((doi) => {
+        return doi.isHeld ? doi : everyTimeNew();
+      })
+    );
   }
   console.log(allNewDice());
-function holdDice(id)
-{
-    setDice(olddice => olddice.map(doe => 
-        {
-       return doe.id === id ? 
-       {...doe , isHeld : !doe.isHeld}  : doe
-        }))
-}
+  function holdDice(id) {
+    setDice((olddice) =>
+      olddice.map((doe) => {
+        return doe.id === id ? { ...doe, isHeld: !doe.isHeld } : doe;
+      })
+    );
+  }
 
   const [dice, setDice] = React.useState(allNewDice());
   const dieele = dice.map((dii) => (
-    <Die value={dii.value} isHeld={dii.isHeld}  holdDice = {() => holdDice(dii.id)}  />
+    <Die
+      value={dii.value}
+      isHeld={dii.isHeld}
+      holdDice={() => holdDice(dii.id)}
+    />
   ));
   return (
     <div className="main">
+      <h1 className="title">Tenzies</h1>
+      <p className="instructions">
+        Roll until all dice are the same. Click each die to freeze it at its
+        current value between rolls.
+      </p>
       <div className="dice-container">{dieele}</div>
       <button className="roll-dice" onClick={narray}>
         RE_ROLL
