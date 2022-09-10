@@ -1,5 +1,6 @@
 import React from "react";
 import Die from "./Die";
+import Confetti from 'react-confetti'
 import { nanoid } from "nanoid";
 function App() {
   function everyTimeNew() {
