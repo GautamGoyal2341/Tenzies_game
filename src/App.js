@@ -1,6 +1,6 @@
 import React from "react";
 import Die from "./Die";
-import Confetti from 'react-confetti'
+import Confetti from "react-confetti";
 import { nanoid } from "nanoid";
 function App() {
   function everyTimeNew() {
@@ -35,19 +35,18 @@ function App() {
   }
 
   const [dice, setDice] = React.useState(allNewDice());
-  const [tenzies , setTenzies] = React.useState(false);
+  const [tenzies, setTenzies] = React.useState(false);
 
   React.useEffect(() => {
-	// console.log("I Only run once (When the component gets mounted)")
-    const allheld = dice.every(die => die.isHeld);
+    // console.log("I Only run once (When the component gets mounted)")
+    const allheld = dice.every((die) => die.isHeld);
     const firstval = dice[0].value;
-    const sameval = dice.every(die => die.value == firstval);
-    if(sameval && allheld)
-    {
-        setTenzies(true);
-        console.log("done");
+    const sameval = dice.every((die) => die.value == firstval);
+    if (sameval && allheld) {
+      setTenzies(true);
+      console.log("done");
     }
-}, [dice]);
+  }, [dice]);
 
   const dieele = dice.map((dii) => (
     <Die
@@ -67,6 +66,10 @@ function App() {
       <button className="roll-dice" onClick={narray}>
         {tenzies ? "NEW GAME" : "ROLL"}
       </button>
+    { tenzies ?  <Confetti
+      width={500}
+      height={500}
+    /> : ""}
     </div>
   );
 }
