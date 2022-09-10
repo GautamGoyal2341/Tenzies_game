@@ -65,7 +65,7 @@ function App() {
       </p>
       <div className="dice-container">{dieele}</div>
       <button className="roll-dice" onClick={narray}>
-        RE_ROLL
+        {tenzies ? "NEW GAME" : "ROLL"}
       </button>
     </div>
   );
