@@ -37,7 +37,15 @@ function App() {
   const [tenzies , setTenzies] = React.useState(false);
 
   React.useEffect(() => {
-	console.log("I Only run once (When the component gets mounted)")
+	// console.log("I Only run once (When the component gets mounted)")
+    const allheld = dice.every(die => die.isHeld);
+    const firstval = dice[0].value;
+    const sameval = dice.every(die => die.value == firstval);
+    if(sameval && allheld)
+    {
+        setTenzies(true);
+        console.log("done");
+    }
 }, [dice]);
 
   const dieele = dice.map((dii) => (
