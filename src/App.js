@@ -19,12 +19,17 @@ function App() {
   }
   function narray() {
     // console.log("clicl");
+    if(tenzies == false){
     setDice((olddice) =>
       olddice.map((doi) => {
         return doi.isHeld ? doi : everyTimeNew();
       })
     );
+  }else{
+    setTenzies(false);
+    setDice(allNewDice)
   }
+}
   console.log(allNewDice());
   function holdDice(id) {
     setDice((olddice) =>
@@ -63,7 +68,7 @@ function App() {
         current value between rolls.
       </p>
       <div className="dice-container">{dieele}</div>
-      <button className="roll-dice" onClick={narray}>
+      <button className="roll-dice" onClick={narray} >
         {tenzies ? "NEW GAME" : "ROLL"}
       </button>
     { tenzies ?  <Confetti
