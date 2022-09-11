@@ -20,6 +20,7 @@ function App() {
   function narray() {
     // console.log("clicl");
     if(tenzies == false){
+        setCount( prevvalue => prevvalue + 1)
     setDice((olddice) =>
       olddice.map((doi) => {
         return doi.isHeld ? doi : everyTimeNew();
@@ -27,7 +28,8 @@ function App() {
     );
   }else{
     setTenzies(false);
-    setDice(allNewDice)
+    setCount(0);
+    setDice(allNewDice);
   }
 }
   console.log(allNewDice());
@@ -41,6 +43,7 @@ function App() {
 
   const [dice, setDice] = React.useState(allNewDice());
   const [tenzies, setTenzies] = React.useState(false);
+  const [count , setCount] = React.useState(0);
 
   React.useEffect(() => {
     // console.log("I Only run once (When the component gets mounted)")
@@ -75,7 +78,9 @@ function App() {
       width={500}
       height={500}
     /> : ""}
+    <div className="coc">No of counts - {count}</div>
     </div>
+
   );
 }
 

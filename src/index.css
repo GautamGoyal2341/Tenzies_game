@@ -75,3 +75,14 @@ body {
     margin-top: 0;
     text-align: center;
 }
+
+.coc{
+
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    /* font-size: 15px; */
+    margin-top: 50px;
+    margin-left: 555px;
+    /* text-align: center; */
+
+}
