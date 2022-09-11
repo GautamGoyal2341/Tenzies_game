@@ -3,9 +3,42 @@ import Die from "./Die";
 import Confetti from "react-confetti";
 import { nanoid } from "nanoid";
 function App() {
+   
+    function florr()
+    {
+        let newdot = Math.ceil(Math.random() * 6)
+        if(newdot == 1)
+        {
+            return ".";
+        }
+        if(newdot == 2)
+        {
+            return (
+                ":"
+        )
+        }
+        if(newdot == 3)
+        {
+            return ":.";
+        }
+        if(newdot == 4)
+        {
+            return "::";
+        }
+        if(newdot == 5)
+        {
+            return "::.";
+        }
+        if(newdot == 6)
+        {
+            return ":::";
+        }
+    }
+
   function everyTimeNew() {
     return {
-      value: Math.ceil(Math.random() * 6),
+      value: florr(),
+     
       isHeld: false,
       id: nanoid(),
     };
@@ -29,6 +62,7 @@ function App() {
   }else{
     setTenzies(false);
     setCount(0);
+    setTimer(0);
     setDice(allNewDice);
   }
 }
@@ -44,6 +78,7 @@ function App() {
   const [dice, setDice] = React.useState(allNewDice());
   const [tenzies, setTenzies] = React.useState(false);
   const [count , setCount] = React.useState(0);
+  const [timer , setTimer] = React.useState(0);
 
   React.useEffect(() => {
     // console.log("I Only run once (When the component gets mounted)")
@@ -55,6 +90,10 @@ function App() {
       console.log("done");
     }
   }, [dice]);
+
+  React.useEffect(() => {
+              	
+}, []);
 
   const dieele = dice.map((dii) => (
     <Die
