@@ -66,7 +66,7 @@ function App() {
     setDice(allNewDice);
   }
 }
-  console.log(allNewDice());
+//   console.log(allNewDice());
   function holdDice(id) {
     setDice((olddice) =>
       olddice.map((doe) => {
@@ -80,6 +80,13 @@ function App() {
   const [count , setCount] = React.useState(0);
   const [timer , setTimer] = React.useState(0);
 
+
+
+
+  
+    localStorage.setItem('items', setCount);
+  
+
   React.useEffect(() => {
     // console.log("I Only run once (When the component gets mounted)")
     const allheld = dice.every((die) => die.isHeld);
@@ -87,13 +94,16 @@ function App() {
     const sameval = dice.every((die) => die.value == firstval);
     if (sameval && allheld) {
       setTenzies(true);
-      console.log("done");
+    //   console.log("done");
     }
   }, [dice]);
 
   React.useEffect(() => {
               	
 }, []);
+const ites = localStorage.getItem('items')
+console.log(ites)
+
 
   const dieele = dice.map((dii) => (
     <Die
@@ -114,8 +124,8 @@ function App() {
         {tenzies ? "NEW GAME" : "ROLL"}
       </button>
     { tenzies ?  <Confetti
-      width={500}
-      height={500}
+      width={2000}
+      height={650}
     /> : ""}
     <div className="coc">No of counts - {count}</div>
     </div>
